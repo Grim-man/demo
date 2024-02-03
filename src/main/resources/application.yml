@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+# mysql数据库配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: cjh1020
+
+# mybatis-plus配置
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.cjh.demo.entity
+  global-config:
+    db-config:
+      id-type: auto
+      field-strategy: not_empty
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      db-type: mysql
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
